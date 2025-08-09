@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Generative Synthesis of Kinematic Mechanisms">
+  <meta name="keywords" content="VAE, Kinematic Mechanisms, Computer Vision, Deep Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gen-Mech: Generative Synthesis of Kinematic Mechanisms</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+    
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+    }
+    
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
+    
+    .publication-venue {
+      color: #555;
+      width: fit-content;
+      font-weight: bold;
+    }
+    
+    .teaser {
+      font-family: 'Google Sans', sans-serif;
+    }
+    
+    .teaser .hero-body {
+      padding-top: 0;
+      padding-bottom: 3rem;
+    }
+    
+    .link-block a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    
+    .code-display {
+      background: #2d3748;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Generative Synthesis of Kinematic Mechanisms</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Jiong Lin</a><sup>*</sup>,
+              <a href="#">Jialong Ning</a>,
+              <a href="#">Judah Goldfeder</a>,
+              <a href="#">Hod Lipson</a><sup>*</sup>
+            </span>
+          </div>
+          <br>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Columbia University</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">New York, NY 10027</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="https://github.com/jl6017/GenMech" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we formulate the problem of kinematic synthesis for planar linkages
+            as a cross-domain image generation task. We develop a planar linkages dataset
+            using RGB image representations, covering a range of mechanisms: from simple
+            types such as crank-rocker and crank-slider to more complex eight-bar linkages
+            like Jansen's mechanism. A shared-latent variational autoencoder (VAE) is employed to explore the potential of image generative models for synthesizing unseen
+            motion curves and simulating novel kinematics. By encoding the drawing speed of
+            trajectory points as color gradients, the same architecture also supports kinematic
+            synthesis conditional on both trajectory shape and velocity profiles. We validate
+            our method on three datasets of increasing complexity: a standard four-bar linkage
+            set, a mixed set of four-bar and crank-slider mechanisms, and a complex set including multi-bar mechanisms. Preliminary results demonstrate the effectiveness
+            of image-based representations for generative mechanical design, showing that
+            mechanisms with revolute and prismatic joints, and potentially cams and gears, can
+            be represented and synthesized within a unified image generation framework.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Video/Images Section -->
+    <center>
+      <br>
+      <h2 class="title is-3">Overview</h2>
+      <div style="text-align: center;">
+        <img src="mechanism/graph_vis/1111/tri_4_0000.png" style="max-width: 60%; margin: 10px;">
+        <img src="mechanism/graph_vis/1111/tri_5_0000.png" style="max-width: 60%; margin: 10px;">
+      </div>
+      <p>Examples of generated kinematic mechanisms and their trajectory curves.</p>
+    </center>
+
+    <!-- Method Overview -->
+    <br>
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our approach uses Variational Autoencoders (VAE) to learn bidirectional mappings between kinematic mechanisms and motion curves.
+            We support both CNN-based and Vision Transformer (ViT) architectures for flexible model selection and comparison.
+            The system can generate mechanisms from curves and curves from mechanisms with high fidelity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Architecture -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">System Architecture</h2>
+        <div class="content">
+          <div class="code-display">
+Curve Image ⟷ VAE Encoder ⟷ Latent Space ⟷ VAE Decoder ⟷ Mechanism Image
+
+Key Features:
+• Dual Architecture Support (CNN & ViT)
+• Bidirectional Generation
+• CUDA Acceleration
+• Comprehensive Evaluation (PSNR metrics)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Structure -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Project Structure</h2>
+        <div class="content">
+          <div class="code-display">
+GenMech/
+├── model/                    # Core model components
+│   ├── dataset.py           # Dataset and data loading utilities
+│   ├── loss.py             # Loss functions for VAE training
+│   ├── VAE_CNN.py          # CNN-based VAE implementation
+│   ├── VAE_VIT.py          # Vision Transformer VAE implementation
+│   ├── VIT_decoder_timm.py # ViT decoder using timm
+│   └── validation.py       # Validation utilities
+├── test/                    # Evaluation and testing scripts
+│   ├── eval_test.py        # Model evaluation and testing
+│   └── eval_plot.py        # Results visualization and plotting
+├── mechanism/              # Dataset generation pipeline
+├── train.py               # Main training script
+└── requirements.txt       # Python dependencies
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Start -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Quick Start</h2>
+        <div class="content">
+          <h4>1. Clone the Repository</h4>
+          <div class="code-display">
+git clone https://github.com/jl6017/GenMech.git
+cd GenMech
+          </div>
+          
+          <h4>2. Setup Environment</h4>
+          <div class="code-display">
+# Create and activate conda environment
+conda create -n genmech python=3.11
+conda activate genmech
+
+# Install PyTorch with CUDA support
+conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+
+# Install remaining dependencies
+pip install -r requirements.txt
+          </div>
+          
+          <h4>3. Start Training</h4>
+          <div class="code-display">
+# Run training with default parameters
+python train.py
+
+# Run evaluation
+python test/eval_test.py
+
+# Generate plots
+python test/eval_plot.py
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Features</h2>
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <h4 class="title is-5">🧠 Dual Architecture</h4>
+              <p>Both CNN and Vision Transformer implementations for flexible model selection.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h4 class="title is-5">🔄 Bidirectional Generation</h4>
+              <p>Generate mechanisms from curves and curves from mechanisms with high fidelity.</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h4 class="title is-5">⚡ GPU Acceleration</h4>
+              <p>CUDA support for fast training and inference on modern GPUs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Requirements -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Requirements</h2>
+        <div class="content">
+          <ul style="text-align: left;">
+            <li><strong>Python 3.11+</strong></li>
+            <li><strong>PyTorch 2.0+</strong></li>
+            <li><strong>CUDA 12.4+</strong> (for GPU acceleration)</li>
+            <li><strong>8GB+ RAM</strong> (16GB+ recommended)</li>
+            <li><strong>GPU with 8GB+ VRAM</strong> (for large models)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX Section -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lin2025genmech,
+  title={Generative Synthesis of Kinematic Mechanisms},
+  author={Lin, Jiong and Ning, Jialong and Goldfeder, Judah and Lipson, Hod},
+  journal={arXiv preprint},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class='title is-3'>Contact</div>
+      <div>
+        For questions, feel free to contact us through our GitHub repository.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is built using the template from
+            <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
