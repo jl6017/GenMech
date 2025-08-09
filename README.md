@@ -1,6 +1,10 @@
 # Gen-Mech
 Generative Synthesis of Kinematic Mechanisms
 
+🌐 **[Project Website](https://jl6017.github.io/GenMech/)**
+
+![Concept Overview](static/concept.png)
+
 ## Overview
 This project implements Variational Autoencoders (VAE) for generating kinematic mechanisms from curves and vice versa. The system supports both CNN-based and Vision Transformer (ViT) based architectures for learning the relationship between mechanism curves and their corresponding linkage structures.
 
@@ -31,8 +35,6 @@ cd GenMech
 ```
 
 ### 2. Environment Setup
-
-#### Option A: Using Conda (Recommended)
 ```bash
 # Create a new conda environment
 conda create -n genmech python=3.11
@@ -47,28 +49,11 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvi
 pip install -r requirements.txt
 ```
 
-#### Option B: Using pip with virtual environment
-```bash
-# Create virtual environment
-python -m venv genmech_env
+### 3. Data Preparation
+Dataset follows this structure:
 
-# Activate virtual environment
-# On Windows:
-genmech_env\Scripts\activate
-# On Linux/Mac:
-source genmech_env/bin/activate
+![Dataset Structure](static/dataset.png)
 
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 3. GPU Setup (Optional but Recommended)
-- **CUDA**: Ensure you have CUDA 12.4+ installed for GPU acceleration
-- **cuDNN**: Install cuDNN compatible with your CUDA version
-- The code automatically detects and uses GPU if available
-
-### 4. Data Preparation
-Ensure your dataset follows this structure:
 ```
 dataset/
 ├── tri_2/
@@ -114,25 +99,6 @@ python test/eval_plot.py
 - CUDA 12.4+ (for GPU acceleration)
 - 8GB+ RAM (16GB+ recommended)
 - GPU with 8GB+ VRAM (for large models)
-
-## Key Features
-- **Dual Architecture Support**: Both CNN and Vision Transformer implementations
-- **Bidirectional Generation**: Curve-to-mechanism and mechanism-to-curve
-- **Comprehensive Evaluation**: PSNR metrics, latent space visualization
-- **Flexible Data Loading**: Support for multiple dataset configurations
-- **Training Monitoring**: Automatic logging and checkpoint saving
-
-## Troubleshooting
-
-### Common Issues
-1. **CUDA out of memory**: Reduce batch size in training script
-2. **Missing datasets**: Ensure dataset paths are correctly configured
-3. **Import errors**: Verify all dependencies are installed and environment is activated
-
-### Performance Tips
-- Use GPU for training (significant speedup)
-- Increase `num_workers` in data loading for faster I/O
-- Adjust batch size based on your GPU memory
 
 ## Citation
 If you use this code, please cite:
