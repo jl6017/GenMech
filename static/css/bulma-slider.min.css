@@ -1,0 +1,118 @@
+/* Bulma Slider */
+.slider {
+  -webkit-appearance: none;
+  background: hsl(0, 0%, 86%);
+  border: none;
+  border-radius: 290486px;
+  cursor: pointer;
+  display: block;
+  height: 1.5rem;
+  outline: none;
+  width: 100%;
+}
+
+.slider::-webkit-slider-runnable-track {
+  background: hsl(0, 0%, 86%);
+  border-radius: 290486px;
+  height: 0.5rem;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: hsl(217, 71%, 53%);
+  border-radius: 290486px;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.slider::-moz-range-track {
+  background: hsl(0, 0%, 86%);
+  border-radius: 290486px;
+  height: 0.5rem;
+}
+
+.slider::-moz-range-thumb {
+  background: hsl(217, 71%, 53%);
+  border: none;
+  border-radius: 290486px;
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.slider::-ms-track {
+  background: hsl(0, 0%, 86%);
+  border-radius: 290486px;
+  height: 0.5rem;
+}
+
+.slider::-ms-thumb {
+  background: hsl(217, 71%, 53%);
+  border: none;
+  border-radius: 290486px;
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.slider.is-fullwidth {
+  display: block;
+  width: 100%;
+}
+
+.slider.is-large {
+  height: 2rem;
+}
+
+.slider.is-large::-webkit-slider-thumb {
+  height: 2rem;
+  width: 2rem;
+}
+
+.slider.is-large::-moz-range-thumb {
+  height: 2rem;
+  width: 2rem;
+}
+
+.slider.is-large::-ms-thumb {
+  height: 2rem;
+  width: 2rem;
+}
+
+.slider.is-medium {
+  height: 1.75rem;
+}
+
+.slider.is-medium::-webkit-slider-thumb {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.slider.is-medium::-moz-range-thumb {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.slider.is-medium::-ms-thumb {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.slider.is-small {
+  height: 1.25rem;
+}
+
+.slider.is-small::-webkit-slider-thumb {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.slider.is-small::-moz-range-thumb {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.slider.is-small::-ms-thumb {
+  height: 1.25rem;
+  width: 1.25rem;
+}

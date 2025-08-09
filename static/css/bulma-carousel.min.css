@@ -1,0 +1,99 @@
+/* Bulma Carousel */
+.slider {
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+.slider .slider-container {
+  display: flex;
+  align-items: flex-start;
+  transition: all 300ms ease;
+}
+
+.slider .slider-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 1rem;
+}
+
+.slider .slider-item img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.slider .slider-navigation-previous,
+.slider .slider-navigation-next {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.slider .slider-navigation-previous:hover,
+.slider .slider-navigation-next:hover {
+  background: rgba(10, 10, 10, 0.3);
+}
+
+.slider .slider-navigation-previous {
+  left: 0;
+}
+
+.slider .slider-navigation-next {
+  right: 0;
+}
+
+.slider .slider-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.slider .slider-page {
+  background: hsl(0, 0%, 86%);
+  border-radius: 290486px;
+  cursor: pointer;
+  display: inline-block;
+  height: 0.5rem;
+  margin: 0 0.25rem;
+  padding: 0;
+  width: 0.5rem;
+}
+
+.slider .slider-page.is-active {
+  background: hsl(217, 71%, 53%);
+}
+
+.slider.is-loading {
+  opacity: 0;
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
