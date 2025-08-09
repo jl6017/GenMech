@@ -1,0 +1,8 @@
+Graph Layer Record:
+tri_0 -> tri_1 -> tri_2 -> tri_3 -> tri_4 -> tri_5
+Number of graphs after each filter:
+Filter 0: [1, 3, 18, 180, 2700, 56700]
+Filter 1: [0, 1, 5, 31, 257, 2803]
+Filter 2: [0, 1, 5, 23, 151, 1325]
+Filter 3: [0, 0, 1, 8, 68, 632]
+Filter 4: [0, 0, 1, 7, 47, 341]
