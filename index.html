@@ -113,11 +113,11 @@
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Concept Image -->
-    <center>
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <img src="static/image/1_concept.pdf" style="max-width: 90%; margin: 10px;">
-      </div>
-    </center>
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <img src="static/image/1_concept.svg"
+          style="max-width: 90%; margin: 10px auto; display: block;">
+    </div>
+
 
     <!-- Abstract -->
     <div class="columns is-centered has-text-centered">
@@ -144,17 +144,18 @@
     </div>
 
     <!-- Approach Overview Section -->
-    <center>
+    <div style="text-align: center; margin-bottom: 2rem;">
       <br>
       <h2 class="title is-3">Overview</h2>
-      <div style="text-align: center;">
-        <img src="static/approach.pdf" style="max-width: 80%; margin: 10px;">
+      <div>
+        <img src="static/image/2_approach.svg"
+          style="max-width: 80%; margin: 10px auto; display: block;">
       </div>
       <p>Our approach for generative synthesis of kinematic mechanisms using VAE.</p>
-    </center>
+    </div>
 
     <!-- Method Overview -->
-    <br>
+    <!-- <br>
     <br>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -167,10 +168,21 @@
           </p>
         </div>
       </div>
+    </div> -->
+
+    <!-- Dataset -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <br>
+      <h2 class="title is-3">Dataset</h2>
+      <div>
+        <img src="static/image/3_dataset.svg"
+          style="max-width: 80%; margin: 10px auto; display: block;">
+      </div>
+      <p>Our dataset comprises a diverse range of kinematic mechanisms.</p>
     </div>
 
     <!-- System Architecture -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">System Architecture</h2>
         <div class="content">
@@ -185,28 +197,30 @@ Key Features:
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Project Structure -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Project Structure</h2>
         <div class="content">
-          <div class="code-display">
+          <div class="code-display" style="text-align: left;">
+          <pre>
 GenMech/
-├── model/                    # Core model components
-│   ├── dataset.py           # Dataset and data loading utilities
-│   ├── loss.py             # Loss functions for VAE training
-│   ├── VAE_CNN.py          # CNN-based VAE implementation
-│   ├── VAE_VIT.py          # Vision Transformer VAE implementation
+├── model/           # Core model components
+│   ├── dataset.py   # Dataset and data loading utilities
+│   ├── loss.py      # Loss functions for VAE training
+│   ├── VAE_CNN.py   # CNN-based VAE implementation
+│   ├── VAE_VIT.py   # Vision Transformer VAE implementation
 │   ├── VIT_decoder_timm.py # ViT decoder using timm
-│   └── validation.py       # Validation utilities
-├── test/                    # Evaluation and testing scripts
-│   ├── eval_test.py        # Model evaluation and testing
-│   └── eval_plot.py        # Results visualization and plotting
-├── mechanism/              # Dataset generation pipeline
-├── train.py               # Main training script
-└── requirements.txt       # Python dependencies
+│   └── validation.py # Validation utilities
+├── test/            # Evaluation and testing scripts
+│   ├── eval_test.py # Model evaluation and testing
+│   └── eval_plot.py # Results visualization and plotting
+├── mechanism/       # Dataset generation pipeline
+├── train.py         # Main training script
+└── requirements.txt # Python dependencies
+          </pre>
           </div>
         </div>
       </div>
@@ -218,13 +232,16 @@ GenMech/
         <h2 class="title is-3">Quick Start</h2>
         <div class="content">
           <h4>1. Clone the Repository</h4>
-          <div class="code-display">
+          <div class="code-display" style="text-align: left;">
+            <pre>
 git clone https://github.com/jl6017/GenMech.git
 cd GenMech
+            </pre>
           </div>
           
           <h4>2. Setup Environment</h4>
-          <div class="code-display">
+          <div class="code-display" style="text-align: left;">
+            <pre>
 # Create and activate conda environment
 conda create -n genmech python=3.11
 conda activate genmech
@@ -234,10 +251,12 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvi
 
 # Install remaining dependencies
 pip install -r requirements.txt
+            </pre>
           </div>
           
           <h4>3. Start Training</h4>
-          <div class="code-display">
+          <div class="code-display" style="text-align: left;">
+            <pre>
 # Run training with default parameters
 python train.py
 
@@ -246,6 +265,7 @@ python test/eval_test.py
 
 # Generate plots
 python test/eval_plot.py
+            </pre>
           </div>
         </div>
       </div>
