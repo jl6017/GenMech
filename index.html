@@ -12,40 +12,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
   <style>
-    body {
-      font-family: 'Noto Sans', sans-serif;
-    }
-    
-    .publication-title {
-      font-family: 'Google Sans', sans-serif;
-    }
-    
-    .publication-authors {
-      font-family: 'Google Sans', sans-serif;
-    }
-    
-    .publication-venue {
-      color: #555;
-      width: fit-content;
-      font-weight: bold;
-    }
-    
-    .teaser {
-      font-family: 'Google Sans', sans-serif;
-    }
-    
-    .teaser .hero-body {
-      padding-top: 0;
-      padding-bottom: 3rem;
-    }
-    
-    .link-block a {
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-    
     .code-display {
       background: #2d3748;
       color: #e2e8f0;
@@ -61,16 +30,16 @@
 
 <section class="hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <!-- <div class="container is-max-desktop"> -->
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Generative Synthesis of Kinematic Mechanisms</h1>
+          <h1 class="publication-title">Generative Synthesis of Kinematic Mechanisms</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="#">Jiong Lin</a>,
-              <a href="#">Jialong Ning</a>,
-              <a href="#">Judah Goldfeder</a>,
-              <a href="#">Hod Lipson</a>
+              <a href="https://jl6017.github.io/">Jiong Lin</a>,
+              <a href="https://pigker.github.io/">Jialong Ning</a>,
+              <a href="https://judahgoldfeder.com/">Judah Goldfeder</a>,
+              <a href="https://www.hodlipson.com/">Hod Lipson</a>
             </span>
           </div>
           <br>
@@ -78,7 +47,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block">Columbia University</span>
           </div>
-          <div class="is-size-6 publication-authors">
+          <div class="is-size-5 publication-authors">
             <span class="author-block">New York, NY 10027</span>
           </div>
 
@@ -112,17 +81,14 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Concept Image -->
-    <div style="text-align: center; margin-bottom: 2rem;">
-      <img src="static/image/1_concept.svg"
-          style="max-width: 90%; margin: 10px auto; display: block;">
-    </div>
-
-
     <!-- Abstract -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-four-fifths" style="margin-top: -4rem;">
         <h2 class="title is-3">Abstract</h2>
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="static/image/1_concept.svg"
+                style="max-width: 100%; margin: 10px auto; display: block;">
+          </div>        
         <div class="content has-text-justified">
           <p>
             In this paper, we formulate the problem of kinematic synthesis for planar linkages
@@ -144,60 +110,67 @@
     </div>
 
     <!-- Approach Overview Section -->
-    <div style="text-align: center; margin-bottom: 2rem;">
-      <br>
-      <h2 class="title is-3">Overview</h2>
-      <div>
-        <img src="static/image/2_approach.svg"
-          style="max-width: 80%; margin: 10px auto; display: block;">
-      </div>
-      <p>Our approach for generative synthesis of kinematic mechanisms using VAE.</p>
-    </div>
-
-    <!-- Method Overview -->
-    <!-- <br>
-    <br>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
+        <h2 class="title is-3">Overview</h2>
+        <div>
+          <img src="static/image/2_approach.svg"
+          style="max-width: 100%; margin: 10px auto; display: block;">
+        </div>
         <div class="content has-text-justified">
-          <p>
-            Our approach uses Variational Autoencoders (VAE) to learn bidirectional mappings between kinematic mechanisms and motion curves.
-            We support both CNN-based and Vision Transformer (ViT) architectures for flexible model selection and comparison.
-            The system can generate mechanisms from curves and curves from mechanisms with high fidelity.
-          </p>
+        <p>Overview of our shared-latent VAE framework for cross-domain kinematic synthesis and simulation. 
+          Curve and mechanism images (<i>C</i>, <i>M</i>) are encoded into latent embeddings (<i>Z<sub>c</sub></i> , <i>Z<sub>m</sub></i>), 
+          which are aligned in a shared latent space. During training, both reconstruction (<i>C</i>, <i>M</i>) and cross-domain prediction (<i>C<sub>m</sub></i>, <i>M<sub>c</sub></i>) are supervised via back-propagation. At inference time, the model enables synthesis (from <i>C</i> to <i>M'</i>) and simulation (from <i>M</i> to <i>C'</i>) through feed-forward decoding. 
+          Following MAE, we adopt an asymmetric ViT encoder-decoder design.</p>
         </div>
       </div>
-    </div> -->
-
-    <!-- Dataset -->
-    <div style="text-align: center; margin-bottom: 2rem;">
-      <br>
-      <h2 class="title is-3">Dataset</h2>
-      <div>
-        <img src="static/image/3_dataset.svg"
-          style="max-width: 80%; margin: 10px auto; display: block;">
-      </div>
-      <p>Our dataset comprises a diverse range of kinematic mechanisms.</p>
     </div>
 
-    <!-- System Architecture -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">System Architecture</h2>
-        <div class="content">
-          <div class="code-display">
-Curve Image ⟷ VAE Encoder ⟷ Latent Space ⟷ VAE Decoder ⟷ Mechanism Image
+    <!-- Dataset -->
 
-Key Features:
-• Dual Architecture Support (CNN & ViT)
-• Bidirectional Generation
-• CUDA Acceleration
-• Comprehensive Evaluation (PSNR metrics)
-          </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset</h2>
+        <div>
+          <img src="static/image/3_dataset.svg"
+          style="max-width: 100%; margin: 10px auto; display: block;">
+        </div>
+        <div class="content has-text-justified">
+        <p>Examples of dataset construction. <b>Left:</b> Example mechanisms (4-bar mechanism and Jansen’s linkage) built with 2 and 5 triangle layers, with their corresponding sequences of link connections. <b>Right:</b> For each complexity level (T2–T5), two representative graphs from different isomorphism classes are shown, along with rendered mechanism examples from the dataset.</p>
         </div>
       </div>
-    </div> -->
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div>
+          <img src="static/image/4_result.svg"
+          style="max-width: 100%; margin: 10px auto; display: block;">
+        </div>
+        <div class="content has-text-justified">
+       <p>Qualitative results. <b>C-M-M<sup>gt</sup></b>: curve to predicted mechanism, compared to ground-truth mechanism. <b>M-C-C<sup>gt</sup></b>: mechanism to predicted curve, compared to ground-truth curve. <b>C-M-C-C<sup>gt</sup></b>: curve-to-mechanism-to-curve, compared to ground-truth curve. Rows show ViT-tiny and ViT-base models on three datasets.</p>
+        </div>
+        <!-- Added: Two .mp4 videos in a row and then the real.svg image -->
+  <div class="columns is-centered" style="margin-top: 0;">
+            <div class="column">
+              <video controls autoplay loop muted style="max-width: 100%; display: block; margin: 0 auto;">
+                <source src="static/image/og.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="column">
+              <video controls autoplay loop muted style="max-width: 100%; display: block; margin: 0 auto;">
+                <source src="static/image/nail_tracking_h264.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 0rem;">
+          <img src="static/image/real.svg" style="max-width: 100%; margin: 10px auto; display: block;">
+        </div>
+      </div>
+    </div>
 
     <!-- Project Structure -->
     <div class="columns is-centered has-text-centered">
