@@ -1,4 +1,4 @@
-# Generative Synthesis of Kinematic Mechanisms (Neurips 2025 Creative AI Track)
+# Generative Synthesis of Kinematic Mechanisms (NeurIPS 2025 Creative AI Track)
 
 🌐 **[Project Website](https://jl6017.github.io/GenMech/)**
 
