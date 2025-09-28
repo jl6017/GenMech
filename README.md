@@ -92,12 +92,10 @@ python test/eval_plot.py
 - **Dataset**: Configure `DATASET` and `DATAPATH` variables
 - **Hyperparameters**: Adjust `beta`, `gamma`, `learning_rate` etc.
 
-## Requirements
-- Python 3.11+
+## Recommend Env
+- Python 3.11
 - PyTorch 2.0+
-- CUDA 12.4+ (for GPU acceleration)
-- 8GB+ RAM (16GB+ recommended)
-- GPU with 8GB+ VRAM (for large models)
+- CUDA 12.4
 
 ## Citation
 If you use this code, please cite:
