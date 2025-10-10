@@ -100,5 +100,10 @@ python test/eval_plot.py
 ## Citation
 If you use this code, please cite:
 ```
-[Add your citation information here]
+@article{lin2025creative,
+  title={Creative synthesis of kinematic mechanisms},
+  author={Lin, Jiong and Ning, Jialong and Goldfeder, Judah and Lipson, Hod},
+  journal={arXiv preprint arXiv:2510.03308},
+  year={2025}
+}
 ```
